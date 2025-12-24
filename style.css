@@ -1,0 +1,136 @@
+ :root {
+  --bg: #0f0f0f;
+  --card: #181818;
+  --accent: #1db954;
+  --text: #fff;
+}
+
+.light {
+  --bg: #f4f4f4;
+  --card: #fff;
+  --text: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  font-family: system-ui;
+  color: var(--text);
+}
+
+.player {
+  width: 350px;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.art {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.art img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  animation: spin 12s linear infinite;
+  animation-play-state: paused;
+}
+
+.playing img {
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.info {
+  text-align: center;
+}
+
+.progress-box {
+  background: #333;
+  height: 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 12px 0;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.controls,
+.extras {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+button,
+select {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 18px;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+button.active {
+  color: var(--accent);
+}
+
+input[type=range] {
+  width: 100%;
+}
+
+ul {
+  padding: 0;
+  margin-top: 10px;
+}
+
+li {
+  list-style: none;
+  padding: 8px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+li.active {
+  color: var(--accent);
+  font-weight: bold;
+  opacity: 1;
+}
