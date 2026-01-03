@@ -1,14 +1,6 @@
- :root {
-  --bg: #0f0f0f;
-  --card: #181818;
+:root {
   --accent: #1db954;
-  --text: #fff;
-}
-
-.light {
-  --bg: #f4f4f4;
-  --card: #fff;
-  --text: #000;
+  --text: #ffffff;
 }
 
 * {
@@ -21,17 +13,26 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--bg);
-  font-family: system-ui;
+  background: linear-gradient(270deg, #1db954, #121212, #1db954);
+  background-size: 600% 600%;
+  animation: bgMove 15s ease infinite;
+  font-family: system-ui, sans-serif;
   color: var(--text);
 }
 
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .player {
-  width: 350px;
-  background: var(--card);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  width: 360px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 22px;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6);
 }
 
 header {
@@ -50,6 +51,7 @@ header {
   width: 220px;
   height: 220px;
   border-radius: 50%;
+  box-shadow: 0 0 40px rgba(29,185,84,0.6);
   animation: spin 12s linear infinite;
   animation-play-state: paused;
 }
@@ -59,12 +61,8 @@ header {
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
 }
 
 .info {
@@ -72,7 +70,7 @@ header {
 }
 
 .progress-box {
-  background: #333;
+  background: rgba(255,255,255,0.2);
   height: 6px;
   border-radius: 10px;
   cursor: pointer;
@@ -82,7 +80,8 @@ header {
 #progress {
   height: 100%;
   width: 0;
-  background: var(--accent);
+  background: linear-gradient(90deg, #1db954, #1ed760);
+  box-shadow: 0 0 10px #1db954;
   border-radius: 10px;
 }
 
@@ -92,21 +91,25 @@ header {
   font-size: 12px;
 }
 
-.controls,
-.extras {
+.controls, .extras {
   display: flex;
   justify-content: center;
   margin: 10px 0;
 }
 
-button,
-select {
+button, select {
   background: none;
   border: none;
   color: var(--text);
   font-size: 18px;
   margin: 0 8px;
   cursor: pointer;
+  transition: transform 0.15s ease, color 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.2);
+  color: var(--accent);
 }
 
 button.active {
@@ -119,7 +122,7 @@ input[type=range] {
 
 ul {
   padding: 0;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 li {
@@ -132,5 +135,5 @@ li {
 li.active {
   color: var(--accent);
   font-weight: bold;
-  opacity: 1;
+opacity: 1;
 }
